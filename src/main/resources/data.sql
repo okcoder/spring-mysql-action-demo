@@ -1,0 +1,1 @@
+insert into m_user(user_id,user_name) values('1','usera');
