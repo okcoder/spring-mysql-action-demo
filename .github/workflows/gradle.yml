@@ -24,6 +24,20 @@ jobs:
     steps:
       - name: Gradle build
         run: gradle build --info
+    # Service containers to run with `container-job`
+    services:
+      # Label used to access the service container
+      mysql:
+        # Docker Hub image
+        image: mysql:8.0.19
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: test_database
+          MYSQL_USER: test_user
+          MYSQL_PASSWORD: test_pwd
+          TZ: "Asia/Tokyo"
+        ports:
+          - 3306:3306
 #  gradle-build:
 #    runs-on: self-hosted
 #    steps:
